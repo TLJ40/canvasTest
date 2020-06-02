@@ -25,8 +25,8 @@ function init() {
 }
 
 function setUpGame(){
-	randNum = Math.floor(Math.random() * 10);
-	alert("setting up game");
+	randNum = Math.floor(Math.random() * 2);
+	window.requestAnimationFrame(showCard);
 }
 
 	
@@ -50,7 +50,6 @@ function showCard() {
 }
 
 function beginGame() {
-	
 	var ctx = document.getElementById("myCanvas").getContext("2d");
 	var txt = "Begin"
 	ctx.font = "20px Ariel";
@@ -59,8 +58,6 @@ function beginGame() {
 }
 
 function evalInput() {
-	alert(randNum)
-	alert(buttonArray[randNum].id);
 
 	if (front == true) {
 		imgToFlip = imgFront;
