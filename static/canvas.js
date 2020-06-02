@@ -1,15 +1,6 @@
 var buttonArray = [];
 var imgArray = [];
 
-var buttonFront = document.getElementById("front");
-buttonArray[0] = buttonFront;
-var buttonBack = document.getElementById("back");
-buttonArray[1] = buttonBack;
-
-var imgFront = new Image();
-imgArray[0] = imgFront;
-var imgBack = new Image();
-imgArray[1] = imgBack;
 var imgW = 100;
 var imgH = 100;
 var opasity = 0;
@@ -18,14 +9,21 @@ var imgToFlip;
 var randNum;
 
 function init() {
-	imgFront.src = "static/img/images.jpg";
-	imgBack.src = "static/img/back.jpg";
+	var A = new Image()
+	var node1 = {A : "A"};
+	imgArray[0] = node1;
+
+	right = imgArray[0];
+	alert(rigth["A"]);
+	A.src = "static/img/a.jpg";
+	B.src = "static/img/b.jpg";
 	//window.requestAnimationFrame(showCard);
 	setUpGame();
 }
 
 function setUpGame(){
 	randNum = Math.floor(Math.random() * 2);
+	alert(imgArray);
 	window.requestAnimationFrame(showCard);
 }
 
@@ -36,7 +34,6 @@ function showCard() {
 
 	//ctx clearRect(0, 0, 300, 300);
 	ctx.save();
-	
 	opasity += 0.002;
 	ctx.globalAlpha = opasity;
 	ctx.drawImage(imgArray[randNum], (300 - imgW) / 2, (300 - imgH) /2 , imgW, imgH);
@@ -45,6 +42,7 @@ function showCard() {
 	if (opasity < 0.1) {
 	 	window.requestAnimationFrame(showCard);
 	} else {
+		
 		beginGame();
 	}
 }
@@ -57,8 +55,9 @@ function beginGame() {
 	imgToFlip = imgFront;
 }
 
-function evalInput() {
+function evalInput(clicked_id) {
 
+	alert(clicked_id + ":" + clicked_id);
 	if (front == true) {
 		imgToFlip = imgFront;
 		front = false;
